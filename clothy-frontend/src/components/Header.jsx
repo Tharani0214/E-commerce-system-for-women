@@ -1,18 +1,39 @@
-import { Link } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import { Link, useNavigate } from "react-router-dom";
+
 
 const Header = () => {
-  const { cart } = useCart();
+  const navigate = useNavigate();
+  const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+  const handleLogout = () => {
+    localStorage.removeItem("currentUser");
+    navigate("/");
+  };
 
   return (
-    <header>
-      <div className="brand">
-        <h2>Zyraa's Fashion</h2>
+    <header className="header">
+      <div className="header-container">
+        <div className="logo" onClick={() => navigate("/")}>
+        Zyraa's Fashion cart
+        </div>
+        <nav className="nav-links">
+          <Link to="/">Home</Link>
+          <Link to="/cart">Cart</Link>
+          {currentUser ? (
+            <>
+              <span className="user-name">Hello, {currentUser.name}</span>
+              <button className="logout-btn" onClick={handleLogout}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Signup</Link>
+            </>
+          )}
+        </nav>
       </div>
-      <nav>
-       
-        <Link to="/cart">Cart ({cart.reduce((a, c) => a + c.qty, 0)})</Link>
-      </nav>
     </header>
   );
 };

@@ -1,4 +1,125 @@
 /* Global Reset */
+
+/* Center everything on screen */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Centers vertically */
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+/* Form styling */
+.auth-form {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Form inputs */
+.auth-form input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Button styling */
+.auth-form button {
+  padding: 12px;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-form button:hover {
+  background-color: #ff3b2e;
+}
+
+/* Form title */
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Optional: Responsive */
+@media (max-width: 480px) {
+  .auth-form {
+    padding: 30px 20px;
+  }
+}
+/*Login.jsx*/
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.auth-form {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-form input {
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.auth-form button {
+  padding: 12px;
+  background-color: #ff6f61;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.auth-form button:hover {
+  background-color: #ff3b2e;
+}
+
+.auth-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+@media (max-width: 480px) {
+  .auth-form {
+    padding: 30px 20px;
+  }
+}
+
 body, html {
   margin: 0;
   height: 100%;
@@ -10,36 +131,91 @@ body, html {
 }
 
 /* Header */
-header {
-  background: #4e342e; /* deep coffee brown */
+/* Header container */
+.header {
+  width: 100%;
+  background-color: #4e342e;/* Brand primary color */
   padding: 15px 30px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Inner container to align logo and nav */
+.header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid #d7ccc8; /* soft beige */
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* Site Branding */
-header .brand h2 {
-  color: #d7ccc8; /* golden accent for site name */
-  margin: 0;
-  font-size: 24px;
-  font-weight: 700;
-  letter-spacing: 1px;
+/* Logo styling */
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
 }
 
-/* Navigation Links */
-header nav a {
-  margin: 0 12px;
+/* Navigation links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Nav link styles */
+.nav-links a {
   text-decoration: none;
-  color: #d7ccc8; /* soft beige */
+  color: #fff;
   font-weight: 500;
-  transition: color 0.3s ease;
+  transition: color 0.3s;
 }
 
-header nav a:hover {
-  color: #ffcc80; /* golden hover */
+.nav-links a:hover {
+  color: #ffd3d0;
 }
+
+/* User name display */
+.user-name {
+  color: #fff;
+  font-weight: 500;
+  margin-right: 10px;
+}
+
+/* Logout button */
+.logout-btn {
+  padding: 6px 12px;
+  background-color: #fff;
+  color: #ff6f61;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.logout-btn:hover {
+  background-color: #ffd3d0;
+  color: #ff6f61;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
+
 
 /* Footer */
 footer {
@@ -352,4 +528,104 @@ h1, h2 {
 
 .cart-summary button:last-child:hover {
   background: #ffb74d;
+}
+
+/* container + card */
+.payment-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: #f6f6f6;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+/* card */
+.payment-card {
+  background: #fff;
+  padding: 36px;
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  width: 420px;              /* slightly wider to fit card number nicely */
+  max-width: 95%;
+  box-sizing: border-box;    /* important to avoid overflow */
+}
+
+/* heading */
+.payment-card h2 {
+  margin: 0 0 22px;
+  color: #4e342e;
+  text-align: center;
+  font-size: 26px;
+}
+
+/* form layout */
+.payment-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* general inputs */
+.payment-form input {
+  padding: 12px 14px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;    /* ensure padding included in width calculation */
+  width: 100%;
+  transition: border-color 0.15s;
+}
+
+.payment-form input:focus {
+  border-color: #ff9800;
+  box-shadow: 0 0 0 3px rgba(255,152,0,0.06);
+}
+
+/* row for expiry + cvv */
+.payment-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* both halves share available space */
+.input-half {
+  flex: 1 1 0;               /* grow/shrink equally */
+  min-width: 0;              /* important to prevent overflow on flex items */
+}
+
+/* make cvv slightly narrower than expiry */
+.input-half.cvv {
+  flex: 0 0 110px;           /* fixed-ish width for CVV */
+  max-width: 130px;
+}
+
+/* expiry uses remaining space */
+.input-half.expiry {
+  flex: 1 1 0;
+}
+
+/* Pay button */
+.pay-button {
+  padding: 12px;
+  background: #ffcc80;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #4e342e;
+  cursor: pointer;
+  transition: transform .08s ease, background .15s;
+}
+
+.pay-button:hover { transform: translateY(-1px); background: #ffb74d; }
+
+/* responsive tweaks */
+@media (max-width: 420px) {
+  .payment-card { width: 100%; padding: 24px; }
+  .payment-row { gap: 10px; }
+  .input-half.cvv { flex: 0 0 95px; }
 }

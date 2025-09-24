@@ -1,7 +1,9 @@
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
   const { cart, removeFromCart, clearCart } = useCart();
+  const navigate = useNavigate();
 
   const total = cart.reduce((a, c) => a + c.price * c.qty, 0);
 
@@ -10,8 +12,7 @@ const Cart = () => {
       alert("Your cart is empty!");
       return;
     }
-    alert(`Thank you for your purchase! Total: ₹${total}`);
-    clearCart();
+    navigate("/Payment"); // ✅ go to Payment page
   };
 
   return (
@@ -45,7 +46,10 @@ const Cart = () => {
             <h3>Total: ₹{total}</h3>
             <div style={{ display: "flex", justifyContent: "flex-end", gap: "15px" }}>
               <button onClick={clearCart}>Clear Cart</button>
-              <button onClick={handleBuyNow} style={{ background: "#ffcc80", color: "#4e342e" }}>
+              <button
+                onClick={handleBuyNow}
+                style={{ background: "#ffcc80", color: "#4e342e" }}
+              >
                 Buy Now
               </button>
             </div>
